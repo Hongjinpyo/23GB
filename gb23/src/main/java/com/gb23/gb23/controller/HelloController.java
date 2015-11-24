@@ -67,7 +67,10 @@ public class HelloController extends HttpServlet {
 		return "/WEB-INF/views/main.jsp";
 	}	
 	
-	
+@RequestMapping("/aaa")
+public String aaa(){
+return "/WEB-INF/views/AAA.jsp";
+}	
 
 ////////////////////////////////LOG-IN //////////////////////////////
 	@RequestMapping("/logInForm")
@@ -83,7 +86,7 @@ public class HelloController extends HttpServlet {
 	vo = dao.logIn(id, password);
 	String path = "login_fail.jsp";
 	if (vo != null) {
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();//session maintains
 		session.setAttribute("loginInfo", vo);
 		return "/WEB-INF/views/member.jsp";
 	}
@@ -101,8 +104,8 @@ public class HelloController extends HttpServlet {
 		HttpSession session=request.getSession(false);
 		// getSession() : 湲곗〈 �꽭�뀡 由ы꽩, �뾾�쑝硫� �깉濡� �깮�꽦
 		// getSession(false) : 湲곗〈�꽭�뀡 由ы꽩, �뾾�쑝硫� null諛섑솚 
-		if(session!=null&&session.getAttribute("loginInfo")!=null){
-			session.invalidate();
+		if(session!=null&&session.getAttribute("loginInfo")!=null){  
+			session.invalidate();  //session invalidate                    
 			response.sendRedirect("main");
 	}
 	}	

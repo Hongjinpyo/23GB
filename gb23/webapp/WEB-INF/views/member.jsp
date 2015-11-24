@@ -182,7 +182,7 @@ tbody {
                     </li>
                                       
                     <li>
-                        <a href="#">MyPage</a>
+                        <a href="/gb23/aaa">MyPage</a>
                     </li>
                     
                       <li>
